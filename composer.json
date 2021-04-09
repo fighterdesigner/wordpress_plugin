@@ -1,0 +1,19 @@
+{
+    "name": "user/grid-gallery-plugin",
+    "description": "this my a grid gallery plugin",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "fighterdesigner",
+            "email": "designsleader@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Inc\\": "./inc" 
+        }
+    }
+}
