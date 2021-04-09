@@ -7,7 +7,7 @@
 /*
 
     Plugin Name: Pictures Gallery Plugin
-    Plugin URI: https://github.com/fighterdesigner/...
+    Plugin URI: https://github.com/fighterdesigner/wordpress_plugin
     Description: this plugin would help you create multiple galleries, and you could put them in any place in your theme.
     Version: 1.0.0
     Author: Fighter Designer
