@@ -1,7 +1,7 @@
 <?php 
 
 /*
-* @package: PicturesGalleryPlugin
+* @package: PicturesGallery
 */
 
 namespace Inc;
@@ -17,9 +17,9 @@ final class Init
     public static function get_services() {
         
         return [
-            Pages\Admin::class,
-            Base\Enqueue::class,
-            Base\Activate::class
+            Pages\Admin_pictures_gallery::class,
+            Base\Enqueue_pictures_gallery::class,
+            Base\Activate_pictures_gallery::class
         ];
         
     }
@@ -30,14 +30,14 @@ final class Init
     /*
     * Loop through all the classes and initiate them
     */
-    public static function register_services() {
+    public static function register_services_pictures_gallery() {
         
             foreach( self::get_services() as $class ) {
                 
                 $service = self::instantiate( $class );
                 
-                if( method_exists( $service, 'register') ) {
-                    $service->register();
+                if( method_exists( $service, 'register_pictures_gallery') ) {
+                    $service->register_pictures_gallery();
                 }
                 
             }

@@ -1,8 +1,8 @@
 <?php 
 
-    require_once PLUGIN_PATH . '/vendor/autoload.php';
+    require_once PICSGALLERY_PATH . '/vendor/autoload.php';
 
-    use Inc\Base\Gallery;
+    use Inc\Base\Gallery_pictures_gallery;
 
     global $wpdb;
     $table_name = $wpdb->prefix . 'pictures_gallery_plugin';
@@ -17,7 +17,7 @@
         global $wpdb;
         $table_name = $wpdb->prefix . 'pictures_gallery_plugin';
         
-        $gallery_name = $_POST['name_holder']; 
+        $gallery_name = esc_attr($_POST['name_holder']); 
         
         $results = $wpdb->get_results( "SELECT * FROM $table_name WHERE gallery_name = '$gallery_name'");
         
@@ -38,8 +38,8 @@
         
     if(isset($_POST['submit'])) {
 
-        $gallery_name = $_POST['name_holder'];
-        $gallery_ids = $_POST['ids_holder'];
+        $gallery_name = esc_attr($_POST['name_holder']);
+        $gallery_ids = esc_attr($_POST['ids_holder']);
         
         global $wpdb;
         $table_name = $wpdb->prefix . 'pictures_gallery_plugin';
@@ -83,7 +83,7 @@
 
     if(isset($_POST['delete_btn'])) {
         
-        $gallery_id = $_POST['gallery_id'];
+        $gallery_id = esc_attr($_POST['gallery_id']);
         
         $wpdb->delete( $table_name, array( 'id' => $gallery_id ) );
         
@@ -97,8 +97,8 @@
         
         $gridgallery = 'picturesgallery'.$mygallery->id;
         
-        $gridgallery = new Gallery($mygallery->gallery_name, $mygallery->gallery_ids);
-        $gridgallery->register();
+        $gridgallery = new Gallery_pictures_gallery($mygallery->gallery_name, $mygallery->gallery_ids);
+        $gridgallery->register_pictures_gallery();
         
     }
 

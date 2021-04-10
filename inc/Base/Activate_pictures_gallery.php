@@ -1,19 +1,19 @@
 <?php
 
 /*
-* @package: PicturesGalleryPlugin
+* @package: PicturesGallery
 */
 
 namespace Inc\Base;
 
-class Activate {
+class Activate_pictures_gallery {
     
-    public static function register() {
+    public static function register_pictures_gallery() {
         
         global $jal_db_version;
         $jal_db_version = '1.0';
         
-        register_activation_hook( FILE_PATH, array(self::class, 'pictures_gallery_table_install') );
+        register_activation_hook( PICSGALLERY_FILE_PATH, array(self::class, 'pictures_gallery_table_install') );
         
     }
             

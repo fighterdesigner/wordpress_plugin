@@ -1,19 +1,19 @@
 <?php
 
 /*
-* @package: PicturesGalleryPlugin
+* @package: PicturesGallery
 */
 
 /*
 
-    Plugin Name: Pictures Gallery Plugin
+    Plugin Name: Pictures Gallery
     Plugin URI: https://github.com/fighterdesigner/wordpress_plugin
     Description: this plugin would help you create multiple galleries, and you could put them in any place in your theme.
     Version: 1.0.0
     Author: Fighter Designer
     Author URI: https://www.fighterdesigner.com
     License: GPLv2 or later
-    Text Domain: pictures-gallery-plugin
+    Text Domain: pictures-gallery
 
 */
 
@@ -42,17 +42,17 @@ if( file_exists(dirname(__FILE__) . '/vendor/autoload.php') ) {
 
 global $wpdb;
 
-define('PLUGIN_PATH', plugin_dir_path(__FILE__));
-define('PLUGIN_URL', plugin_dir_url(__FILE__));
-define('FILE_PATH', __FILE__);
+define('PICSGALLERY_PATH', plugin_dir_path(__FILE__));
+define('PICSGALLERY_URL', plugin_dir_url(__FILE__));
+define('PICSGALLERY_FILE_PATH', __FILE__);
 
 
 if( class_exists( 'Inc\\Init' ) ) {
-    Inc\Init::register_services();
+    Inc\Init::register_services_pictures_gallery();
 }
 
 
-use Inc\Base\Gallery; 
+use Inc\Base\Gallery_pictures_gallery; 
 
 $table_name = $wpdb->prefix . 'pictures_gallery_plugin';
 
@@ -60,9 +60,9 @@ $mygallerys = $wpdb->get_results( "SELECT * FROM $table_name");
 
     foreach($mygallerys as $mygallery) {
         
-        $gridgallery = 'gridgallery'.$mygallery->id;
+        $gridgallery = 'picturesgallery'.$mygallery->id;
         
-        $gridgallery = new Gallery($mygallery->gallery_name, $mygallery->gallery_ids);
-        $gridgallery->register();
+        $gridgallery = new Gallery_pictures_gallery($mygallery->gallery_name, $mygallery->gallery_ids);
+        $gridgallery->register_pictures_gallery();
         
     }

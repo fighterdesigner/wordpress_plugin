@@ -1,12 +1,12 @@
 <?php
 
 /*
-* @package: PicturesGalleryPlugin
+* @package: PicturesGallery
 */
 
 namespace Inc\Base;
 
-class Gallery
+class Gallery_pictures_gallery
 {
     
         public $gallery_name;
@@ -19,12 +19,12 @@ class Gallery
             
         }
     
-        public function register() {
-            add_shortcode($this->gallery_name, array($this,'gallery_shortcode'));
+        public function register_pictures_gallery() {
+            add_shortcode($this->gallery_name, array($this,'pictures_gallery_shortcode'));
         }
     
     
-        public function gallery_shortcode( $attr ) {
+        public function pictures_gallery_shortcode( $attr ) {
             
         $post = get_post();
                 
